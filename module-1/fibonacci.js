@@ -16,7 +16,6 @@ function fibonacci(n) {
      */
     // PLACE YOUR CODE BETWEEN THIS...
     
-nThFibonacci = 0;
 let firstSum = 0;
 let secondSum = 1;
 if (n >= 0) {
