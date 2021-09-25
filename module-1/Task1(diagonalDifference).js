@@ -4,11 +4,11 @@ const n = arr[0].length;
 
 let primaryDiagonal = 0;
 let secondaryDiagonal = 0;
-let i = 0;
+
 let j = 0;
 let x = n;
 
-for (i ; i < n; i++) {
+for (let i = 0; i < n; i++) {
     j = i;
     primaryDiagonal += arr[i][j];
     
