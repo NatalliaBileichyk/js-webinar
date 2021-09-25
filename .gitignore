@@ -60,3 +60,5 @@ typings/
 .idea
 
 package-lock.json
+
+Task1(diagonalDifference) copy.js

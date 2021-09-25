@@ -15,7 +15,19 @@ function fibonacci(n) {
      * Also take into consideration the documentation of the function!
      */
     // PLACE YOUR CODE BETWEEN THIS...
-
+ 
+if (n < 0) {
+    nThFibonacci = 0;
+} else { 
+    let firstSum = 0;
+    let secondSum = 1;    
+    while (n >= 1) {
+             nThFibonacci = firstSum + secondSum
+             secondSum = firstSum 
+             firstSum = nThFibonacci
+             n--;
+    }
+  };
     // ...AND THIS COMMENT LINE!
     return nThFibonacci;
 }
