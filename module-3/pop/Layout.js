@@ -33,7 +33,7 @@ class Layout extends Element {
     //=> inherits addChildren(child){}  from Element
 
     //  6. It has a method to retrieve the root protractor element by the locator (.get([name])) or a child element by name in any depth 
-    //=> inherits addChildren(child){}  from Element
+    //=> inherits get(name){}  from Element
 
     load() {
         return this.url
