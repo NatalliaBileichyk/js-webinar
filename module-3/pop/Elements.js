@@ -23,9 +23,8 @@ class Elements extends Element{
        this.children = null;
     }
 
-    setParent(parent){
-        this.parent = parent;
-    };
+    // 3. It can have a parent Element, which is the context of the element (.parent)
+    //=> inherits "setParent" method  from Element
     
     addChildren() {
         throw new Error("It cannot have children elements");

@@ -7,16 +7,25 @@ const Layout = require('./Layout');
 const Element = require('./Element');
 const Elements = require('./Elements');
 
-module.exports = class HomePage extends Layout {
-    constructor() {
-        super('/');
-
-        this.header = new Element('Header', by.css('header'));
-        this.header.addChildren(new Element("Logo", by.css('.header__logo')));
-        this.menuItems = new Elements("Menu Items", by.css('.top-navigation__item-link'));
+class HomePage extends Layout {
+    constructor(name, url, locator) {
+        super(name, url, locator);
     }
 
-    get logo() {
-        return this.get('Logo');
+    getLogo () {
+        const newElementLogo = new Element('Logo', {css:'.header__logo'});
+        return newElementLogo.name;
+    };
+
+    getHeader () {
+        const newElementHeader = new Element('Header', {css:'header'});
+        return newElementHeader.name;
+    };
+
+    getMenuItems () {
+        const newElementMenuItems = new Elements("Menu Items", {css:'.top-navigation__item-link'});
+        return newElementMenuItems.locator;
     }
 }
+
+module.exports = HomePage;
