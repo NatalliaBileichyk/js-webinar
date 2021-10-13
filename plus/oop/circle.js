@@ -8,11 +8,9 @@
  */
 
 class Circle {
-    constructor (number, r){
-        this.number = number;
-       
+    constructor (r){
         //should store radius
-        this.r = number;
+        this.r = r;
 
         //should handle invalid radius
         if (this.r <= 0) {
@@ -21,13 +19,13 @@ class Circle {
     }
         
     //should calculate perimeter
-    getPerimeter (number){
-        return this.number*2*Math.PI;
+    getPerimeter (){
+        return this.r*2*Math.PI;
     }
         
     // should calculate ares
-    getArea(number){
-        return Math.pow(this.number, 2) * Math.PI;
+    getArea(){
+        return Math.pow(this.r, 2) * Math.PI;
     }
 
 }
