@@ -8,11 +8,8 @@
 
 function properties (o) {
     // should handle if parameter is not object
-
-    // if (typeof o !== "object") {return 0} - doesn't work. WHY?
-    // if (!o) {return 0}
-    if (!Object.keys(o)) {
-        return 0
+    if (typeof o !== "object") {
+       return []
     }
 
     // should return properties of the object
