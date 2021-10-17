@@ -5,7 +5,7 @@
  * @param {object} o the object
  * @returns {object} the new object
  */
-git
+
 function reverse(o) {
     // it("should handle if not object is passed")
     if (typeof o !== "object") {

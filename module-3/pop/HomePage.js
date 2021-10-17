@@ -10,22 +10,28 @@ const Elements = require('./Elements');
 class HomePage extends Layout {
     constructor(name, url, locator) {
         super(name, url, locator);
+        
+        this.newElementHeader = new Element('Header', {css:'header'});
+        this.newElementLogo = new Element('Logo', {css:'.header__logo'});
+        this.newElementMenuItems = new Elements("Menu Items", {css:'.top-navigation__item-link'});
+        this.newElementFooter = new Elements("Footer", {css:'.footer__holder'});
     }
 
     getLogo () {
-        const newElementLogo = new Element('Logo', {css:'.header__logo'});
-        return newElementLogo.name;
+        return this.newElementLogo.name;
     };
 
     getHeader () {
-        const newElementHeader = new Element('Header', {css:'header'});
-        return newElementHeader.name;
+        return this.newElementHeader.name;
     };
 
     getMenuItems () {
-        const newElementMenuItems = new Elements("Menu Items", {css:'.top-navigation__item-link'});
-        return newElementMenuItems.locator;
+        return this.newElementMenuItems.locator;
     }
+
+    getFooter () {
+        return this.newElementFooter.locator;
+    };
 }
 
 module.exports = HomePage;

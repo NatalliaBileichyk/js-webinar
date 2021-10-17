@@ -3,7 +3,9 @@ const ElementFinder = require('../mock/ElementFinder');
 const HomePage = require('../../pop/HomePage');
 const expect = require('chai').expect;
 
-describe.only('HomePage Class', () => {
+const page = new HomePage ('EPAM HomePage', 'http://epam.com', {css: 'body'});
+
+describe('HomePage Class', () => {
     beforeEach(() => {
         global.element = ElementFinder.element;
         global.browser = new Browser();
@@ -19,33 +21,31 @@ describe.only('HomePage Class', () => {
     });
 
     it('should have the page name', () => {
-        const page = new HomePage('EPAM HomePage', 'http://epam.com', {css: 'body'});
         expect(page.name).not.to.be.undefined;
         expect(page.name).to.equal('EPAM HomePage');
     });
 
     it('should have the stored URL', () => {
-        const page = new HomePage('EPAM HomePage', 'http://epam.com', {css: 'body'});
-
         expect(page.url).not.to.be.undefined;
         expect(page.url).to.equal('http://epam.com');
     });
-         
+    
+    describe('Load', () => {
+        it('should have method to load the page by URL', () => {        
+            expect(page.load).not.to.be.undefined;
+            expect(page.load()).to.equal('http://epam.com');
+        });
+    });
     
     describe('Logo', () => {
-            it('should have method to retrieve LOGO', () => {
-                const element = new HomePage('EPAM HomePage', 'http://epam.com', {css: 'body'});
-                expect(element.getLogo()).not.to.be.undefined;
-    
-                const pElement = element.getLogo();
-                expect(pElement).to.equal('Logo');
-            });
+        it('should have method to retrieve LOGO', () => {            
+            expect(page.getLogo()).not.to.be.undefined;
+            expect(page.getLogo()).to.equal('Logo');
+        });
     });
 
     describe('Header', () => {
-        it('should have method to retrieve the header', () => {
-            const page = new HomePage ('EPAM HomePage', 'http://epam.com', {css: 'body'});
-    
+        it('should have method to retrieve the header', () => {            
             expect(page.getHeader()).not.to.be.undefined;
             expect(page.getHeader()).to.equal('Header');
         });
@@ -53,11 +53,15 @@ describe.only('HomePage Class', () => {
 
     describe('Menu Items', () => {
         it('should have method to retrieve menuitems', () => {
-            const element = new HomePage ('EPAM HomePage', 'http://epam.com', {css: 'body'});
-            expect(element.getMenuItems()).not.to.be.undefined;
+            expect(page.getMenuItems()).not.to.be.undefined;
+            expect(page.getMenuItems().css).to.equal('.top-navigation__item-link');
+        });
+    });
 
-            const pElement = element.getMenuItems();
-            expect(pElement.css).to.equal('.top-navigation__item-link');
+    describe('Footer', () => {
+        it('should have method to retrieve Footer', () => {
+            expect(page.getFooter()).not.to.be.undefined;
+            expect(page.getFooter().css).to.equal('.footer__holder');
         });
     });
 
