@@ -11,26 +11,26 @@ class HomePage extends Layout {
     constructor(name, url, locator) {
         super(name, url, locator);
         
-        this.newElementHeader = new Element('Header', {css:'header'});
-        this.newElementLogo = new Element('Logo', {css:'.header__logo'});
-        this.newElementMenuItems = new Elements("Menu Items", {css:'.top-navigation__item-link'});
-        this.newElementFooter = new Elements("Footer", {css:'.footer__holder'});
+        this.header = new Element('Header', {css:'header'});
+        this.logo = new Element('Logo', {css:'.header__logo'});
+        this.menuItems = new Elements("Menu Items", {css:'.top-navigation__item-link'});
+        this.footerElements = new Elements("Footer", {css:'.footer__holder'});
     }
 
-    getLogo () {
-        return this.newElementLogo.name;
-    };
-
-    getHeader () {
-        return this.newElementHeader.name;
-    };
-
-    getMenuItems () {
-        return this.newElementMenuItems.locator;
+    retrieveLogo() {
+        return this.logo.name; 
     }
 
-    getFooter () {
-        return this.newElementFooter.locator;
+    retrieveHeader () {
+        return this.header.name;
+    };
+
+    retrieveMenuItems () {
+        return this.menuItems.locator;
+    }
+
+    retrieveFooter () {
+        return this.footerElements.locator;
     };
 }
 

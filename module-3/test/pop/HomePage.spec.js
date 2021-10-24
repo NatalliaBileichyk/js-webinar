@@ -39,29 +39,29 @@ describe('HomePage Class', () => {
     
     describe('Logo', () => {
         it('should have method to retrieve LOGO', () => {            
-            expect(page.getLogo()).not.to.be.undefined;
-            expect(page.getLogo()).to.equal('Logo');
+            expect(page.retrieveLogo()).not.to.be.undefined;
+            expect(page.retrieveLogo()).to.equal('Logo');
         });
     });
 
     describe('Header', () => {
         it('should have method to retrieve the header', () => {            
-            expect(page.getHeader()).not.to.be.undefined;
-            expect(page.getHeader()).to.equal('Header');
+            expect(page.retrieveHeader()).not.to.be.undefined;
+            expect(page.retrieveHeader()).to.equal('Header');
         });
     });
 
     describe('Menu Items', () => {
         it('should have method to retrieve menuitems', () => {
-            expect(page.getMenuItems()).not.to.be.undefined;
-            expect(page.getMenuItems().css).to.equal('.top-navigation__item-link');
+            expect(page.retrieveMenuItems()).not.to.be.undefined;
+            expect(page.retrieveMenuItems().css).to.equal('.top-navigation__item-link');
         });
     });
 
     describe('Footer', () => {
         it('should have method to retrieve Footer', () => {
-            expect(page.getFooter()).not.to.be.undefined;
-            expect(page.getFooter().css).to.equal('.footer__holder');
+            expect(page.retrieveFooter()).not.to.be.undefined;
+            expect(page.retrieveFooter().css).to.equal('.footer__holder');
         });
     });
 
