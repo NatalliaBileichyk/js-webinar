@@ -12,15 +12,16 @@ class HomePage extends Layout {
         super(name, url, locator);
         
         this.header = new Element('Header', {css:'header'});
-        this.logo = new Element('Logo', {css:'.header__logo'});
+        this.header.addChildren(new Element("Logo", {css:'.header__logo'}));
         this.menuItems = new Elements("Menu Items", {css:'.top-navigation__item-link'});
-        this.footerElements = new Elements("Footer", {css:'.footer__holder'});
+        this.footer = new Element("Footer", {css:'.footer__holder'});
+        this.footer.addChildren(new Element("Our brands", {css:'.footer__brands-list-wrapper'}));
     }
 
-    retrieveLogo() {
-        return this.logo.name; 
+    get logo() {
+        return this.header.get("Logo").locator().css
     }
-
+    
     retrieveHeader () {
         return this.header.name;
     };
@@ -29,9 +30,10 @@ class HomePage extends Layout {
         return this.menuItems.locator;
     }
 
-    retrieveFooter () {
-        return this.footerElements.locator;
+    get footerBrands () {
+        return this.footer.get("Our brands").locator().css
     };
+
 }
 
 module.exports = HomePage;

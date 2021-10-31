@@ -39,8 +39,8 @@ describe('HomePage Class', () => {
     
     describe('Logo', () => {
         it('should have method to retrieve LOGO', () => {            
-            expect(page.retrieveLogo()).not.to.be.undefined;
-            expect(page.retrieveLogo()).to.equal('Logo');
+            expect(page.logo).not.to.be.undefined;
+            expect(page.logo).to.equal('.header__logo');
         });
     });
 
@@ -59,9 +59,9 @@ describe('HomePage Class', () => {
     });
 
     describe('Footer', () => {
-        it('should have method to retrieve Footer', () => {
-            expect(page.retrieveFooter()).not.to.be.undefined;
-            expect(page.retrieveFooter().css).to.equal('.footer__holder');
+        it('should have method to retrieve Footer Brands', () => {
+            expect(page.footerBrands).not.to.be.undefined;
+            expect(page.footerBrands).to.equal('.footer__brands-list-wrapper');
         });
     });
 
