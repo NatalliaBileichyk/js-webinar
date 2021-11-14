@@ -7,21 +7,18 @@
  * @returns {number} summary of all integers or 0 in other cases
  */
 function arraySum (elements){
-    let sum = 0;
-
-    for (let i in elements){ 
-        if (typeof elements[i] == 'number'){
-            sum += elements[i]
-        } 
-        
-        if (typeof elements[i] == 'object'){
-            sum += arraySum (elements[i])
-        } else {
-            sum
-        }
+    if (!Array.isArray(elements) || elements.length === 0) {
+        return 0
     }
-        
-    return sum;
+    
+    return elements.reduce((sum, el) =>{
+        if (typeof el === 'number') {
+            return sum + el}
+        if (Array.isArray(el)){
+            return sum + arraySum (el)
+        } 
+         return sum
+       
+    }, 0)
 }
-
 module.exports = arraySum;

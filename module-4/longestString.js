@@ -9,11 +9,11 @@
 function longestString (strings){
     let longest = "";
         
-    if (typeof strings === "object") {
-        let newArray = strings.filter(el => typeof el === 'string' || typeof el === 'object');
+    if (Array.isArray(strings)) {
+        let newArray = strings.filter(el => typeof el === 'string' || Array.isArray(el));
             
             for (let i in newArray){
-                if (typeof newArray[i] === 'object'){
+                if (Array.isArray(newArray[i])){
                    longestString(newArray[i])
                 }
                 
