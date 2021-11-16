@@ -26,9 +26,10 @@ function longestString (strings){
                     longest = longest
                 }
             }
-    } else {
-        longest = ""
-    }
+    } 
+    //else {
+    //   longest = ""
+    //}
     
     return longest;
 }
