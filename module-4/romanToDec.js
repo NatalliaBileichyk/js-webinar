@@ -7,78 +7,53 @@
  * @returns {number} the Arabic (decimal) equivalent of the parameter
  * @throws Error in case of invalid input
  */
-
-// Variant 1 if it's needed to return a sum
-// roman1 = "X"
-// roman2 = "XVII"
-// function romanToDec (roman){
-//     if (typeof roman !== "string"){
-//         throw new Error ("It doesn't have an Arabic (decimal) equivalent")
-//     }
-
-//     return roman.split('')
-//                 .reduce((sum, el) => {                                                            
-//                     if (el === "I" ||  el === "i"){
-//                         return sum +  1
-//                     }
-//                     if (el === "V" ||  el === "v"){
-//                         return sum +  5
-//                     }
-//                     if (el === "X" ||  el === "x"){
-//                         return sum +  10
-//                     }
-//                     if (el === "L" ||  el === "l"){
-//                         return sum + 50
-//                     } 
-//                     if (el === "D" ||  el === "d"){
-//                         return sum + 500
-//                     }
-//                     if (el === "M" ||  el === "m"){
-//                         return sum + 1000
-//                     } else {
-//                         throw new Error ("It doesn't have an Arabic (decimal) equivalent")
-//                     }                    
-//                 }, 0)              
-// }
-
-// console.log(romanToDec (roman1));
-// console.log(romanToDec (roman2));
-
-
-// Variant 2 if it's needed ONLY to change a number
 roman1 = "X"
-roman2 = "XVII"
+roman2 = "XIV"
+roman3 = "CD"
+roman4 = "CMXVI"
+roman5 = true
+roman6 = "X1"
+
+console.log(`roman1 = "X" = 10:      ${romanToDec (roman1)}`);
+console.log(`roman2 = "XIV" = 14:    ${romanToDec (roman2)}`);
+console.log(`roman3 = "CD" = 400:    ${romanToDec (roman3)}`);
+console.log(`roman4 = "CMXVI" = 916: ${romanToDec (roman4)}`);
+console.log(`roman5 = "true" = Error:${romanToDec (roman5)}`);
+console.log(`roman6 = "X1" = Error:  ${romanToDec (roman6)}`);
 
 function romanToDec (roman){
-    if (typeof roman !== "string"){
-        throw new Error ("It doesn't have an Arabic (decimal) equivalent")
+    let romDecEqual = {
+        "I": 1,
+        "V": 5,
+        "X": 10,
+        "L": 50,
+        "C": 100,
+        "D": 500,
+        "M": 1000
     }
 
-    return roman.split('')
-                .map(el => {                                                            
-                    if (el === "I" ||  el === "i"){
-                        return el = 1
-                    }
-                    if (el === "V" ||  el === "v"){
-                        return el = 5
-                    }
-                    if (el === "X" ||  el === "x"){
-                        return el =  10
-                    }
-                    if (el === "L" ||  el === "l"){
-                        return el = 50
-                    } 
-                    if (el === "D" ||  el === "d"){
-                        return el = 500
-                    }
-                    if (el === "M" ||  el === "m"){
-                        return el = 1000
-                    } else {
-                        throw new Error ("It doesn't have an Arabic (decimal) equivalent")
-                    }
-                })
-                .join("")            
-}
+    if (typeof roman !== "string"){
+        throw new Error (`Roman is a ${typeof roman}, not a string`)
+    }
 
-console.log(romanToDec (roman1));
-console.log(romanToDec (roman2));
+    let sum = 0;
+    let newArray = roman.toUpperCase().split('');
+
+        for (let el = 0; el < newArray.length; el++ ) {
+ 
+            let currentNumber = romDecEqual[roman[el]];
+            let nextNumber = romDecEqual[roman[el+1]];
+            
+            if (typeof currentNumber === "undefined"){
+               throw new Error ("It's doesn't have an Arabic (decimal) equivalent")
+            } 
+           
+            if (typeof nextNumber === "undefined" || currentNumber >= nextNumber){
+                sum += currentNumber;
+            } else {
+                sum -= currentNumber
+            }
+        }
+
+    return sum
+}
