@@ -7,19 +7,6 @@
  * @returns {number} the Arabic (decimal) equivalent of the parameter
  * @throws Error in case of invalid input
  */
-roman1 = "X"
-roman2 = "XIV"
-roman3 = "CD"
-roman4 = "CMXVI"
-roman5 = true
-roman6 = "X1"
-
-console.log(`roman1 = "X" = 10:      ${romanToDec (roman1)}`);
-console.log(`roman2 = "XIV" = 14:    ${romanToDec (roman2)}`);
-console.log(`roman3 = "CD" = 400:    ${romanToDec (roman3)}`);
-console.log(`roman4 = "CMXVI" = 916: ${romanToDec (roman4)}`);
-console.log(`roman5 = "true" = Error:${romanToDec (roman5)}`);
-console.log(`roman6 = "X1" = Error:  ${romanToDec (roman6)}`);
 
 function romanToDec (roman){
     let romDecEqual = {
@@ -57,3 +44,5 @@ function romanToDec (roman){
 
     return sum
 }
+
+module.exports = romanToDec;

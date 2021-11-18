@@ -1,0 +1,21 @@
+[   
+    {
+        "arguments": ["X"],
+        "result": 10
+    },
+    {
+        "arguments": ["XIV"],
+        "result": 14
+    },
+    {
+        "arguments":["CD"],
+        "result": 400
+    },
+    {
+        "arguments":["CMXVI"],
+        "result": 916
+    },{
+        "arguments":["MMCDXLIVII"],
+        "result": 2446
+    }
+]
