@@ -12,3 +12,32 @@
  * @returns {boolean} true if the array is properly sorted,
  *                    false otherwise
  */
+const arrayEqual = require('./arrayEqual.js');
+
+function arraySorted (items, ignore){
+    let regexp = new RegExp( ((ignore === undefined) ? "": "[" + ignore + "]*") + "\\s*", "g")
+    let modifiedArray = []
+
+    if (!Array.isArray(items)){
+       return false
+    }
+
+    for (let i in items){
+        if (Array.isArray(items[i])){
+            arraySorted (items[i], ignore)
+        }
+
+        if (typeof items[i] === "string"){        
+           modifiedArray[i] = items[i].replace(regexp, "").split("")
+                                      .filter(el => (el !== ""))
+                                      .join("")
+                                      .toLowerCase()
+        } else {modifiedArray[i] = items[i]}
+        
+    }
+             
+    let secondArray = modifiedArray.slice().sort(); 
+    return arrayEqual(modifiedArray, secondArray)
+
+}
+module.exports = arraySorted;
